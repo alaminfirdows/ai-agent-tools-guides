@@ -1,0 +1,6 @@
+{
+    "env": {
+        "ANTHROPIC_BASE_URL": "https://cc.freemodel.dev",
+        "ANTHROPIC_API_KEY": "fe_oa_1579223b976e02a81c6cd4a1df3e6dc3c9c301b60f9c9f94"
+    }
+}

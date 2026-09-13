@@ -1,0 +1,35 @@
+{
+    "includeCoAuthoredBy": false,
+    "env": {
+        "ANTHROPIC_MODEL": "haiku",
+        "CLAUDE_CODE_DISABLE_1M_CONTEXT": "1",
+        "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
+        "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "1",
+        "CLAUDE_CODE_SUBAGENT_MODEL": "haiku"
+    },
+    "permissions": {
+        "allow": ["Bash(php artisan *)"],
+        "deny": [
+            "Bash(git commit *)",
+            "Bash(git push *)",
+            "Bash(*force*push*)"
+        ],
+        "ask": [
+            "Bash(git *)"
+        ]
+    },
+    "skipDangerousModePermissionPrompt": true,
+    "hooks": {
+        "PreToolUse": [
+            {
+                "matcher": "Bash",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "./.claude/hooks/git-guard.sh"
+                    }
+                ]
+            }
+        ]
+    }
+}
